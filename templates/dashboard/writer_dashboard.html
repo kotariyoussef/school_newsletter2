@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Writer Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1>Writer Dashboard</h1>
+            <p>Welcome back, {{ request.user.studentprofile.full_name }}!</p>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card stats-card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Posts</h5>
+                    <h2 class="card-number">{{ total_posts }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card">
+                <div class="card-body">
+                    <h5 class="card-title">Published</h5>
+                    <h2 class="card-number">{{ published_posts }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card">
+                <div class="card-body">
+                    <h5 class="card-title">Drafts</h5>
+                    <h2 class="card-number">{{ draft_posts }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Views</h5>
+                    <h2 class="card-number">{{ total_views }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    <div class="quick-actions">
+                        <a href="{% url 'dashboard:create_post' %}" class="btn btn-primary">Create New Post</a>
+                        <a href="{% url 'dashboard:post_list' %}" class="btn btn-outline-primary">Manage Posts</a>
+                        <a href="{% url 'dashboard:manage_comments' %}" class="btn btn-outline-primary">Manage Comments</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Top Posts and Recent Posts -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Top Performing Posts</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Views</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in top_posts %}
+                                <tr>
+                                    <td>{{ post.title }}</td>
+                                    <td>{{ post.views }}</td>
+                                    <td>
+                                        <a href="{% url 'dashboard:post_analytics' post.slug %}" class="btn btn-sm btn-outline-info">Analytics</a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="3">No published posts yet.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Posts</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in recent_posts %}
+                                <tr>
+                                    <td>{{ post.title }}</td>
+                                    <td>
+                                        <span class="badge {% if post.status == 'published' %}bg-success{% else %}bg-secondary{% endif %}">
+                                            {{ post.status|title }}
+                                        </span>
+                                    </td>
+                                    <td>{{ post.created_at|date:"M d, Y" }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="3">No posts yet.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Comments and Category Stats -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Comments</h5>
+                    <div class="comments-list">
+                        {% for comment in recent_comments %}
+                        <div class="comment-item mb-3">
+                            <div class="d-flex justify-content-between">
+                                <strong>{{ comment.user.username }}</strong>
+                                <small>{{ comment.created_at|date:"M d, Y" }}</small>
+                            </div>
+                            <p class="mb-1">{{ comment.content|truncatechars:100 }}</p>
+                            <small class="text-muted">On: {{ comment.news.title }}</small>
+                        </div>
+                        {% empty %}
+                        <p>No comments yet.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Category Distribution</h5>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Category distribution chart
+    const categoryData = {
+        labels: [{% for cat in category_stats %}'{{ cat.category__name }}',{% endfor %}],
+        datasets: [{
+            label: 'Posts by Category',
+            data: [{% for cat in category_stats %}{{ cat.count }},{% endfor %}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const categoryConfig = {
+        type: 'pie',
+        data: categoryData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'right',
+                }
+            }
+        }
+    };
+
+    const categoryChart = new Chart(
+        document.getElementById('categoryChart'),
+        categoryConfig
+    );
+</script>
+{% endblock %}

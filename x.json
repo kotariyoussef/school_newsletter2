@@ -1,0 +1,1246 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2025-04-19T10:23:07.760Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "xogew92046@lushosa.com",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2025-04-19T10:33:14.231Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "1",
+            "object_repr": "StudentRequest object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2025-04-19T11:07:55.897Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "2",
+            "object_repr": "yilexos600",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2025-04-19T11:11:21.821Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "StudentProfile object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Bio\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2025-04-19T20:12:19.949Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "StudentRequest object (2)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2025-04-19T21:01:05.023Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "StudentProfile object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Bio\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2025-04-19T21:26:44.094Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "3",
+            "object_repr": "xxxxx",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2025-04-20T10:38:24.960Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "1",
+            "object_repr": "fantasy",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2025-04-20T10:49:41.211Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "Title by StudentProfile object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"comment\", \"object\": \"Comment by xxxxx on \\\"Title\\\"\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2025-04-20T10:50:43.735Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "Title by StudentProfile object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"comment\", \"object\": \"Comment by xxxxx on \\\"Title\\\"\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2025-04-20T10:50:58.359Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "2",
+            "object_repr": "Title by StudentProfile object (1)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2025-04-20T10:50:58.359Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "1",
+            "object_repr": "Title by StudentProfile object (1)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2025-04-20T10:51:29.095Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "xxxx by StudentProfile object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"comment\", \"object\": \"Comment by admin on \\\"xxxx\\\"\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2025-04-20T10:55:21.805Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "xxxx by StudentProfile object (1)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2025-04-20T10:55:28.282Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "xxxx by StudentProfile object (1)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2025-04-20T10:56:36.711Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "3",
+            "object_repr": "xxxx by StudentProfile object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2025-04-20T11:03:45.688Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "2",
+            "object_repr": "goo",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2025-04-20T11:04:08.177Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "4",
+            "object_repr": "TTTT by tt tt",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"comment\", \"object\": \"Comment by xxxxx on \\\"TTTT\\\"\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2025-04-20T11:45:56.746Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "5",
+            "object_repr": "rtegg",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Status\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2025-04-20T11:46:04.652Z",
+            "user": 1,
+            "content_type": 12,
+            "object_id": "6",
+            "object_repr": "frew",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Status\"]}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 4,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 4,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 4,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 4,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 5,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 5,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 5,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 5,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 6,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 6,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 6,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 6,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add email address",
+            "content_type": 7,
+            "codename": "add_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change email address",
+            "content_type": 7,
+            "codename": "change_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete email address",
+            "content_type": 7,
+            "codename": "delete_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view email address",
+            "content_type": 7,
+            "codename": "view_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add email confirmation",
+            "content_type": 8,
+            "codename": "add_emailconfirmation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change email confirmation",
+            "content_type": 8,
+            "codename": "change_emailconfirmation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete email confirmation",
+            "content_type": 8,
+            "codename": "delete_emailconfirmation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view email confirmation",
+            "content_type": 8,
+            "codename": "view_emailconfirmation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add student profile",
+            "content_type": 9,
+            "codename": "add_studentprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change student profile",
+            "content_type": 9,
+            "codename": "change_studentprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete student profile",
+            "content_type": 9,
+            "codename": "delete_studentprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view student profile",
+            "content_type": 9,
+            "codename": "view_studentprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add student request",
+            "content_type": 10,
+            "codename": "add_studentrequest"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change student request",
+            "content_type": 10,
+            "codename": "change_studentrequest"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete student request",
+            "content_type": 10,
+            "codename": "delete_studentrequest"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view student request",
+            "content_type": 10,
+            "codename": "view_studentrequest"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add category",
+            "content_type": 11,
+            "codename": "add_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change category",
+            "content_type": 11,
+            "codename": "change_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete category",
+            "content_type": 11,
+            "codename": "delete_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view category",
+            "content_type": 11,
+            "codename": "view_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add story",
+            "content_type": 12,
+            "codename": "add_story"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change story",
+            "content_type": 12,
+            "codename": "change_story"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete story",
+            "content_type": 12,
+            "codename": "delete_story"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view story",
+            "content_type": 12,
+            "codename": "view_story"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 49,
+        "fields": {
+            "name": "Can add comment",
+            "content_type": 13,
+            "codename": "add_comment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 50,
+        "fields": {
+            "name": "Can change comment",
+            "content_type": 13,
+            "codename": "change_comment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 51,
+        "fields": {
+            "name": "Can delete comment",
+            "content_type": 13,
+            "codename": "delete_comment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 52,
+        "fields": {
+            "name": "Can view comment",
+            "content_type": 13,
+            "codename": "view_comment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 53,
+        "fields": {
+            "name": "Can add tag",
+            "content_type": 14,
+            "codename": "add_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 54,
+        "fields": {
+            "name": "Can change tag",
+            "content_type": 14,
+            "codename": "change_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 55,
+        "fields": {
+            "name": "Can delete tag",
+            "content_type": 14,
+            "codename": "delete_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 56,
+        "fields": {
+            "name": "Can view tag",
+            "content_type": 14,
+            "codename": "view_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 57,
+        "fields": {
+            "name": "Can add tagged item",
+            "content_type": 15,
+            "codename": "add_taggeditem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 58,
+        "fields": {
+            "name": "Can change tagged item",
+            "content_type": 15,
+            "codename": "change_taggeditem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 59,
+        "fields": {
+            "name": "Can delete tagged item",
+            "content_type": 15,
+            "codename": "delete_taggeditem"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 60,
+        "fields": {
+            "name": "Can view tagged item",
+            "content_type": 15,
+            "codename": "view_taggeditem"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$O4khfSKZdzMCLC5jw5j2wa$5894z9toAr8PlyD6qI3u9SEOVhLxInsiS0Ifu5XDsrA=",
+            "last_login": "2025-04-19T20:07:02.787Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-04-19T09:32:19.480Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$rNkllUMdEhZgRclRrD1LxX$9AVDsLOJ2il50wDHS+E7PEef5kIXyvekQYpUb8E7HSI=",
+            "last_login": "2025-04-19T10:25:55Z",
+            "is_superuser": false,
+            "username": "yilexos600",
+            "first_name": "xxx",
+            "last_name": "xxx",
+            "email": "yilexos600@agiuse.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-19T10:23:57Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$vDfCOM9NFjDANqssZjB2ib$hFr7+Vzq2VgI4ceBtZEp65liPpyRAR54JVtW/5Ut4Bk=",
+            "last_login": "2025-04-19T20:06:27Z",
+            "is_superuser": false,
+            "username": "xxxxx",
+            "first_name": "tt",
+            "last_name": "tt",
+            "email": "xxxxx@xxx.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-19T20:06:25Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "auth",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "account",
+            "model": "emailaddress"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "account",
+            "model": "emailconfirmation"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "accounts",
+            "model": "studentprofile"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "accounts",
+            "model": "studentrequest"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "stories",
+            "model": "category"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "stories",
+            "model": "story"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 13,
+        "fields": {
+            "app_label": "stories",
+            "model": "comment"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 14,
+        "fields": {
+            "app_label": "taggit",
+            "model": "tag"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 15,
+        "fields": {
+            "app_label": "taggit",
+            "model": "taggeditem"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "a9i6grgncl8wbkc2eq3g7nvvsx2r8o20",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pB2GAq4dN8zkIGhUjWQlHZlvLtt0oVu_3vvv4Wnbc1-a2nxM4ur6MXldwsUn6kcgB9U7lXGWtZlDvJQ5EmbHCun1-10_w4ytbzXUREqo1UiDTCwMpNF4sDIdiDo2IWALjkkQO5UJDcZgMDGwg50r8XnC-lTN_k:1u6ESs:AOi843to6RCLJNu9K8E_53C1NfpsurP0N9msjOK0lwg",
+            "expire_date": "2025-05-03T20:07:02.803Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "i0scoxb7jra7if9aubtkpfbmulxpv0cw",
+        "fields": {
+            "session_data": ".eJxVkN1uwyAMhd-F6y7iJxDo1bbXmCZkHGdBTUIVqNau6rsvdN1F76xj-zvHvjJ_hJy_09r7lTIVf6AL2zNMEcafF5BcQrAdmX7gWhtsrdKiM6SDlRoF2zFATKeleDiVkZYSEUpMi5-pjKnPbP9xZX_1Rv23qmuF7UXXaq43om6Mk6KTasdohjhto5c40Tllw_krfMVTpgbTzG6fO3Z38puy-lihkj1pAfBAS23ANFW5eSRs7jOPdm7envK-P7aeUCPksRqQRT3wNgxWYa8cl0I7JYPpuXaD6AiUbgGVQNF3yrWDk2itktYEHQIOFZop5_oWOh_juj1YSO62226_Npd9-A:1u65OV:SrBRtjl4xX2TLOb6A2uWudX6ud1fukn6MmkrmGExp6w",
+            "expire_date": "2025-05-03T10:25:55.849Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "rubj0irz23ovsib7dffej0hr1usko6ec",
+        "fields": {
+            "session_data": ".eJxVjMEOgyAQRP-Fc2MoqxW9tT9ClmWJpBQTgV6a_nux8eJx3sy8j0CitaZi3rwFH9gZfmGIYk41xoswWMtiaubNBCdmAeLELNKT015gjDvuDl333xx17u4tcSqBsIQ1PY7XSbVgXprHAl2V7xVNzoLVVmtp2Wl24DwNGqClkd0AErSUSvUTj36gvr3UjVGK7w-jikgx:1u6ESJ:ze9zJjl5gPoNU8bEXeJl-3QG4d6c6n7PGO2hCahr0ew",
+            "expire_date": "2025-05-03T20:06:27.408Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "yo657ie9db9iu0l6rrohrku487u2w1lr",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pB2GAq4dN8zkIGhUjWQlHZlvLtt0oVu_3vvv4Wnbc1-a2nxM4ur6MXldwsUn6kcgB9U7lXGWtZlDvJQ5EmbHCun1-10_w4ytbzXUREqo1UiDTCwMpNF4sDIdiDo2IWALjkkQO5UJDcZgMDGwg50r8XnC-lTN_k:1u64Yz:s9ghmsm8zqa2p2MZcOfutHgBTwEfvHs1-aLO7USZrCo",
+            "expire_date": "2025-05-03T09:32:41.051Z"
+        }
+    },
+    {
+        "model": "account.emailaddress",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "email": "yilexos600@agiuse.com",
+            "verified": true,
+            "primary": true
+        }
+    },
+    {
+        "model": "account.emailaddress",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "email": "xxxxx@xxx.com",
+            "verified": false,
+            "primary": true
+        }
+    },
+    {
+        "model": "taggit.tag",
+        "pk": 1,
+        "fields": {
+            "name": "tt",
+            "slug": "tt"
+        }
+    },
+    {
+        "model": "taggit.tag",
+        "pk": 2,
+        "fields": {
+            "name": "gooo",
+            "slug": "gooo"
+        }
+    },
+    {
+        "model": "taggit.taggeditem",
+        "pk": 1,
+        "fields": {
+            "tag": 1,
+            "content_type": 12,
+            "object_id": 3
+        }
+    },
+    {
+        "model": "taggit.taggeditem",
+        "pk": 2,
+        "fields": {
+            "tag": 2,
+            "content_type": 12,
+            "object_id": 4
+        }
+    },
+    {
+        "model": "accounts.studentrequest",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "reason": "I am student",
+            "created_at": "2025-04-19T10:32:48.698Z",
+            "approved": true
+        }
+    },
+    {
+        "model": "accounts.studentrequest",
+        "pk": 2,
+        "fields": {
+            "user": 3,
+            "reason": "please",
+            "created_at": "2025-04-19T20:12:04.324Z",
+            "approved": true
+        }
+    },
+    {
+        "model": "accounts.studentrequest",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "reason": "i",
+            "created_at": "2025-04-20T11:38:58.637Z",
+            "approved": false
+        }
+    },
+    {
+        "model": "accounts.studentprofile",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "bio": "<h1><strong>I am xxxxx</strong></h1>\r\n\r\n<p><s><strong>I have</strong></s></p>\r\n\r\n<p><img alt=\"\" height=\"450\" src=\"/media/uploads/admin/2025/04/19/qrcode_cdnpixabaycom.png\" width=\"450\" /></p>\r\n\r\n<p><s><strong><img alt=\"\" height=\"196\" src=\"/media/uploads/2025/04/19/01-intro-7731.jpg\" width=\"377\" /></strong></s></p>\r\n\r\n<p><s><strong><img alt=\"\" height=\"56\" src=\"https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg\" style=\"float:left\" width=\"100\" /></strong></s></p>",
+            "profile_picture": "",
+            "date_of_birth": null,
+            "phone_number": null,
+            "address": "",
+            "slug": "yilexos600",
+            "created_at": "2025-04-19T10:33:14.230Z",
+            "updated_at": "2025-04-19T21:01:05.017Z"
+        }
+    },
+    {
+        "model": "accounts.studentprofile",
+        "pk": 2,
+        "fields": {
+            "user": 3,
+            "bio": "<p>Hi</p>\r\n\r\n<p>I am Youssef</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" height=\"450\" src=\"/media/uploads/xxxxx/2025/04/19/qrcode_cdnpixabaycom.png\" width=\"450\" /></p>",
+            "profile_picture": "profile_pictures/qrcode_cdn.pixabay.com.png",
+            "date_of_birth": "2016-06-16",
+            "phone_number": "430277525432579",
+            "address": "",
+            "slug": "xxxxx",
+            "created_at": "2025-04-19T20:12:19.885Z",
+            "updated_at": "2025-04-19T21:11:02.989Z"
+        }
+    },
+    {
+        "model": "stories.category",
+        "pk": 1,
+        "fields": {
+            "name": "fantasy",
+            "slug": "fantasy",
+            "description": ""
+        }
+    },
+    {
+        "model": "stories.category",
+        "pk": 2,
+        "fields": {
+            "name": "goo",
+            "slug": "goo",
+            "description": ""
+        }
+    },
+    {
+        "model": "stories.story",
+        "pk": 3,
+        "fields": {
+            "title": "xxxx",
+            "slug": "xxxx",
+            "student": 1,
+            "content": "<p>xx</p>",
+            "summary": "xx",
+            "publish": "2025-04-20T10:51:01Z",
+            "created": "2025-04-20T10:51:29.087Z",
+            "updated": "2025-04-20T10:56:36.693Z",
+            "status": "rejected",
+            "featured_image": "",
+            "categories": [
+                1
+            ],
+            "likes": []
+        }
+    },
+    {
+        "model": "stories.story",
+        "pk": 4,
+        "fields": {
+            "title": "TTTT",
+            "slug": "tttt",
+            "student": 2,
+            "content": "<p>Gooooo</p>",
+            "summary": "Gooooo",
+            "publish": "2025-04-20T11:03:19Z",
+            "created": "2025-04-20T11:04:08.156Z",
+            "updated": "2025-04-20T11:04:08.156Z",
+            "status": "published",
+            "featured_image": "stories/images/2025/04/20/qrcode_cdn.pixabay.com.png",
+            "categories": [
+                2
+            ],
+            "likes": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "stories.story",
+        "pk": 5,
+        "fields": {
+            "title": "rtegg",
+            "slug": "rtegg",
+            "student": 2,
+            "content": "<p>fff</p>",
+            "summary": "sss",
+            "publish": "2025-04-20T11:43:12Z",
+            "created": "2025-04-20T11:43:12.211Z",
+            "updated": "2025-04-20T11:45:56.739Z",
+            "status": "published",
+            "featured_image": "",
+            "categories": [
+                2
+            ],
+            "likes": []
+        }
+    },
+    {
+        "model": "stories.story",
+        "pk": 6,
+        "fields": {
+            "title": "frew",
+            "slug": "frew",
+            "student": 2,
+            "content": "<p>few</p>",
+            "summary": "few",
+            "publish": "2025-04-20T11:45:12Z",
+            "created": "2025-04-20T11:45:12.339Z",
+            "updated": "2025-04-20T11:46:04.640Z",
+            "status": "published",
+            "featured_image": "",
+            "categories": [
+                2
+            ],
+            "likes": []
+        }
+    },
+    {
+        "model": "stories.comment",
+        "pk": 3,
+        "fields": {
+            "story": 3,
+            "user": 1,
+            "content": "x",
+            "created": "2025-04-20T10:51:29.093Z",
+            "active": true
+        }
+    },
+    {
+        "model": "stories.comment",
+        "pk": 4,
+        "fields": {
+            "story": 4,
+            "user": 3,
+            "content": "gooo",
+            "created": "2025-04-20T11:04:08.176Z",
+            "active": true
+        }
+    }
+]

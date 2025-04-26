@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if object %}Edit News{% else %}Create News{% endif %}
+{% endblock %}
+
+{% block extra_css %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h2>{% if object %}Edit News{% else %}Create News{% endif %}</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Please correct the errors below.
+                    </div>
+                {% endif %}
+                
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">Title</label>
+                    {{ form.title.errors }}
+                    {{ form.title }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.category.id_for_label }}">Category</label>
+                    {{ form.category.errors }}
+                    {{ form.category }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.tags.id_for_label }}">Tags</label>
+                    {{ form.tags.errors }}
+                    {{ form.tags }}
+                    <small class="form-text text-muted">Hold down "Control", or "Command" on a Mac, to select more than one.</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.featured_image.id_for_label }}">Featured Image</label>
+                    {{ form.featured_image.errors }}
+                    {{ form.featured_image }}
+                    {% if object and object.featured_image %}
+                        <div class="mt-2">
+                            <img src="{{ object.featured_image.url }}" alt="Current featured image" class="img-thumbnail" style="max-height: 200px;">
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.summary.id_for_label }}">Summary</label>
+                    {{ form.summary.errors }}
+                    {{ form.summary }}
+                    <small class="form-text text-muted">A brief summary of the news article (maximum 500 characters).</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.content.id_for_label }}">Content</label>
+                    {{ form.content.errors }}
+                    {{ form.content }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.status.id_for_label }}">Status</label>
+                    {{ form.status.errors }}
+                    {{ form.status }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.publish_date.id_for_label }}">Publish Date</label>
+                    {{ form.publish_date.errors }}
+                    {{ form.publish_date }}
+                    <small class="form-text text-muted">Leave blank to publish immediately.</small>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    {% if object %}Update{% else %}Create{% endif %} News
+                </button>
+                <a href="{% url 'news:news_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

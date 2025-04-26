@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block extra_css %}
+    {{ form.media }}
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Edit Student Profile</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+    
+                    <div class="form-group mb-3">
+                        <label for="{{ form.first_name.id_for_label }}" class="form-label">First Name</label>
+                        {{ form.first_name }}
+                        {% if form.first_name.errors %}
+                            <div class="text-danger mt-1">
+                                {{ form.first_name.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                
+                    <div class="form-group mb-3">
+                        <label for="{{ form.last_name.id_for_label }}" class="form-label">Last Name</label>
+                        {{ form.last_name }}
+                        {% if form.last_name.errors %}
+                            <div class="text-danger mt-1">
+                                {{ form.last_name.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                
+                    <div class="form-group mb-3">
+                        <label for="{{ form.slug.id_for_label }}" class="form-label">Slug</label>
+                        {{ form.slug }}
+                        {% if form.slug.errors %}
+                            <div class="text-danger mt-1">
+                                {{ form.slug.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="{{ form.bio.id_for_label }}" class="form-label">About Me</label>
+                        {{ form.bio }}
+                        {% if form.bio.errors %}
+                            <div class="text-danger mt-1">
+                                {{ form.bio.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="{{ form.profile_picture.id_for_label }}" class="form-label">Profile picture</label>
+                        {% if profile.profile_picture %}
+                            <div class="mb-2">
+                                <img src="{{ profile.profile_picture.url }}" alt="Current profile picture" />
+                            </div>
+                        {% endif %}
+                        {{ form.profile_picture }}
+                        {% if form.profile_picture.errors %}
+                            <div class="text-danger mt-1">
+                                {{ form.profile_picture.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'accounts:student_profile' %}" class="btn btn-secondary me-md-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" name="save_and_contine" value="true" class="btn btn-secondary">Save and Continue Editing</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+    
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("{{ form.first_name.id_for_label }}").value = "{{ first_name|escapejs }}";
+        document.getElementById("{{ form.last_name.id_for_label }}").value = "{{ last_name|escapejs }}";
+    });
+</script>
+{% endblock %}
+    

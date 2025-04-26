@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Profile{% endblock %}
+    
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Student Profile</h4>
+                <a href="{% url 'accounts:edit_student_profile' %}" class="btn btn-light btn-sm">Edit Profile</a>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h2>{{ profile.full_name }}</h2>
+                    <p class="text-muted">{{ user.email }}</p>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">About Me</div>
+                    <div class="card-body">
+                        {% if profile.bio %}
+                            <p>{{ profile.bio|safe }}</p>
+                        {% else %}
+                            <p class="text-muted">No bio provided yet. <a href="{% url 'accounts:edit_student_profile' %}">Add one now</a>.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">My news</div>
+                    <div class="card-body">
+                        {% with user_news=user.profile.news.all %}
+                            {% if user_news %}
+                                <div class="list-group">
+                                    {% for news in user_news %}
+                                        <a href="{% url 'news:news_detail' news.pk %}" class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">{{ news.title }}</h5>
+                                                <small>{{ news.created_at|date:"M d, Y" }}</small>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <p class="text-muted">You haven't posted any news yet.</p>
+                                <a href="{% url 'news:news_create' %}" class="btn btn-primary">Write Your First news</a>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+<h1>All Profiles</h1>
+<ul>
+    {% for profile in profiles %}
+        <li>
+            <a href="{% url "profile_detail" slug=profile.slug %}">
+                {{ profile.full_name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

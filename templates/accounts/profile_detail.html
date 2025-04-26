@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+
+
+<div class="card-body">
+    <div class="text-center mb-4">
+        <h2>{{ profile.user.username }}</h2>
+    </div>
+    
+    <div class="card mt-3">
+        <div class="card-header">About Me</div>
+        <div class="card-body">
+            {% if profile.bio %}
+                <p>{{ profile.bio|safe }}</p>
+            {% else %}
+                <p class="text-muted">No bio provided yet. <a href="{% url 'accounts:edit_student_profile' %}">Add one now</a>.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

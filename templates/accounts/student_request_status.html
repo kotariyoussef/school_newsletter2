@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Request Status{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header {% if student_request.approved %}bg-success{% else %}bg-warning{% endif %} text-white">
+                <h4 class="mb-0">Student Request Status</h4>
+            </div>
+            <div class="card-body">
+                <p><strong>Submitted on:</strong> {{ student_request.created_at|date:"F j, Y" }}</p>
+                <p><strong>Status:</strong> 
+                    {% if student_request.approved %}
+                        <span class="badge bg-success">Approved</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">Pending</span>
+                    {% endif %}
+                </p>
+                
+                <div class="card mt-3">
+                    <div class="card-header">Your Request</div>
+                    <div class="card-body">
+                        <p>{{ student_request.reason }}</p>
+                    </div>
+                </div>
+                
+                {% if student_request.approved %}
+                    <div class="alert alert-success mt-4">
+                        <h5>Congratulations!</h5>
+                        <p>Your request has been approved. You can now create your student profile and start posting stories.</p>
+                        <a href="{% url 'accounts:student_profile' %}" class="btn btn-primary">View Your Profile</a>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info mt-4">
+                        <h5>Your request is being reviewed</h5>
+                        <p>An administrator will review your request soon. Please check back later.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

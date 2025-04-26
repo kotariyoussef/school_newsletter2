@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manage Posts{% endblock %}
+
+{% block content %}
+<div class="posts-container">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1>Manage Posts</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a href="{% url 'dashboard:create_post' %}" class="btn btn-primary">Create New Post</a>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select name="status" id="status" class="form-select">
+                        <option value="">All</option>
+                        <option value="published" {% if current_status == 'published' %}selected{% endif %}>Published</option>
+                        <option value="draft" {% if current_status == 'draft' %}selected{% endif %}>Draft</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="form-select">
+                        <option value="">All Categories</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sort" class="form-label">Sort By</label>
+                    <select name="sort" id="sort" class="form-select">
+                        <option value="-created_at" {% if current_sort == '-created_at' %}selected{% endif %}>Newest First</option>
+                        <option value="created_at" {% if current_sort == 'created_at' %}selected{% endif %}>Oldest First</option>
+                        <option value="-views" {% if current_sort == '-views' %}selected{% endif %}>Most Views</option>
+                        <option value="title" {% if current_sort == 'title' %}selected{% endif %}>Title (A-Z)</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary mb-3">Apply Filters</button>
+                    <a href="{% url 'dashboard:post_list' %}" class="btn btn-outline-secondary mb-3 ms-2">Reset</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Posts Table -->
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Views</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in page_obj %}
+                        <tr>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.category.name }}</td>
+                            <td>
+                                <span class="badge {% if post.status == 'published' %}bg-success{% else %}bg-secondary{% endif %}">
+                                    {{ post.status|title }}
+                                </span>
+                            </td>
+                            <td>{{ post.views }}</td>
+                            <td>{{ post.created_at|date:"M d, Y" }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{% url 'dashboard:edit_post' post.slug %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <a href="{% url 'dashboard:post_analytics' post.slug %}" class="btn btn-sm btn-outline-info">Analytics</a>
+                                    <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-outline-secondary" target="_blank">View</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6">No posts found matching the selected filters.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}&status={{ current_status }}&category={{ current_category }}&sort={{ current_sort }}">Previous</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}&status={{ current_status }}&category={{ current_category }}&sort={{ current_sort }}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}&status={{ current_status }}&category={{ current_category }}&sort={{ current_sort }}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

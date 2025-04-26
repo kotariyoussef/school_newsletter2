@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block extra_css %}
+    {{form.media}}
+{% endblock %}
+
+{% block content %}
+<div class="post-form-container">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1>{{ title }}</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a href="{% url 'dashboard:post_list' %}" class="btn btn-outline-secondary">Back to Posts</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
+                            {{ form.title.errors }}
+                            <input type="text" class="form-control {% if form.title.errors %}is-invalid{% endif %}" 
+                                   id="{{ form.title.id_for_label }}" name="{{ form.title.name }}" 
+                                   value="{{ form.title.value|default:'' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="{{ form.category.id_for_label }}" class="form-label">Category</label>
+                            {{ form.category.errors }}
+                            {{ form.category }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="{{ form.summary.id_for_label }}" class="form-label">Summary</label>
+                    {{ form.summary.errors }}
+                    <textarea class="form-control {% if form.summary.errors %}is-invalid{% endif %}" 
+                              id="{{ form.summary.id_for_label }}" name="{{ form.summary.name }}" 
+                              rows="3">{{ form.summary.value|default:'' }}</textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="{{ form.featured_image.id_for_label }}" class="form-label">Featured Image</label>
+                    {{ form.featured_image.errors }}
+                    {{ form.featured_image }}
+                    {% if post and post.featured_image %}
+                    <div class="mt-2">
+                        <p>Current image: <a href="{{ post.featured_image.url }}" target="_blank">View</a></p>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-4">
+                    <label for="{{ form.content.id_for_label }}" class="form-label">Content</label>
+                    {{ form.content.errors }}
+                    {{ form.content }}
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="{{ form.status.id_for_label }}" class="form-label">Status</label>
+                            {{ form.status.errors }}
+                            {{ form.status }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="{{ form.tags.id_for_label }}" class="form-label">Tags</label>
+                            {{ form.tags.errors }}
+                            {{ form.tags }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 form-check mt-4">
+                            {{ form.is_featured }}
+                            <label class="form-check-label" for="{{ form.is_featured.id_for_label }}">
+                                Feature this post
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{% url 'dashboard:post_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

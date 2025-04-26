@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if current_category %}
+        {{ current_category.name }} - News
+    {% elif current_tag %}
+        {{ current_tag.name }} - News
+    {% elif search_query %}
+        Search Results for "{{ search_query }}" - News
+    {% else %}
+        News Website
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <!-- News With Sidebar Start -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        {% if news_list %}
+                        {% for news in news_list %}
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="{% if news.featured_image %}{{ news.featured_image.url }}{% else %}{% static "img/news-700x435-1.jpg" %}{% endif %}" style="object-fit: cover;" alt="{{ news.title }}">
+                                <div class="bg-white border border-top-0 p-4">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                            href="{% url 'news:news_by_category' news.category.slug %}">{{news.category.name}}</a>
+                                        <a class="text-body" href=""><small>{{ news.publish_date|date:"F d, Y" }}</small></a>
+                                    </div>
+                                    <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="{{ news.get_absolute_url }}">{{ news.title }}</a>
+                                    <p class="m-0">{{news.summary}}</p>
+                                </div>
+                                <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle mr-2" src="{% if news.author.profile_picture %}{{news.author.profile_picture.url}}{% else %}{% static "img/user.jpg" %}{% endif %}" width="25" height="25" alt="{{news.author.full_name}}">
+                                        <small>{{news.author.full_name}}</small>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <small class="ml-3"><i class="far fa-eye mr-2"></i>{{news.views}}</small>
+                                        <small class="ml-3"><i class="far fa-comment mr-2"></i>{{news.approved_comments|length}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                            <div class="alert alert-info">
+                                No news articles found.
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                {% include "partitials/sidebar.html" %}
+            </div>
+        </div>
+    </div>
+    <!-- News With Sidebar End -->
+{% endblock %}

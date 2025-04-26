@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Analytics: {{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="post-analytics-container">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1>Analytics: {{ post.title }}</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a href="{% url 'dashboard:post_list' %}" class="btn btn-outline-secondary">Back to Posts</a>
+        </div>
+    </div>
+
+    <!-- Post Details Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Post Details</h5>
+                    <table class="table table-sm">
+                        <tr>
+                            <th style="width: 150px;">Title:</th>
+                            <td>{{ post.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Category:</th>
+                            <td>{{ post.category.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status:</th>
+                            <td>
+                                <span class="badge {% if post.status == 'published' %}bg-success{% else %}bg-secondary{% endif %}">
+                                    {{ post.status|title }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Published:</th>
+                            <td>{% if post.publish_date %}{{ post.publish_date|date:"F j, Y, g:i a" }}{% else %}Not published yet{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Last Updated:</th>
+                            <td>{{ post.updated_at|date:"F j, Y, g:i a" }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div class="analytics-summary text-center">
+                        <div class="analytics-card">
+                            <h2>{{ post.views }}</h2>
+                            <p>Total Views</p>
+                        </div>
+                        <div class="analytics-card mt-3">
+                            <h2>{{ comment_count }}</h2>
+                            <p>Comments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Views Chart -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Views Over Time</h5>
+                    <canvas id="viewsChart"></canvas>
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Note: This is simulated data for demonstration. Implement a view tracking model for actual data.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Comments</h5>
+                    <div class="comments-summary">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Total Comments:</span>
+                            <span class="badge bg-primary">{{ comment_count }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Approved Comments:</span>
+                            <span class="badge bg-success">{{ approved_comment_count }}</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="recent-comments mt-3">
+                        <h6>Recent Comments</h6>
+                        {% for comment in post.comments.all|slice:":5" %}
+                        <div class="comment-item mb-2">
+                            <div class="d-flex justify-content-between">
+                                <strong>{{ comment.user.username }}</strong>
+                                <small>{{ comment.created_at|date:"M d" }}</small>
+                            </div>
+                            <p class="mb-1 small">{{ comment.content|truncatechars:100 }}</p>
+                            <small class="{% if comment.is_approved %}text-success{% else %}text-warning{% endif %}">
+                                {{ comment.is_approved|yesno:"Approved,Pending Approval" }}
+                            </small>
+                        </div>
+                        {% if not forloop.last %}<hr class="my-2">{% endif %}
+                        {% empty %}
+                        <p class="text-muted">No comments yet.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Simulate view data for the chart
+    // In a real application, you would fetch this data from your backend
+    document.addEventListener('DOMContentLoaded', function() {
+        const viewsCtx = document.getElementById('viewsChart').getContext('2d');
+        
+        // Simulate 30 days of data
+        const labels = [];
+        const viewsData = [];
+        
+        const endDate = new Date();
+        for (let i = 29; i >= 0; i--) {
+            const date = new Date();
+            date.setDate(endDate.getDate() - i);
+            labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+            
+            // Generate some random data that trends upward
+            if (i === 29) {
+                viewsData.push(Math.floor(Math.random() * 10)); // Start with a low number
+            } else {
+                // Each day has a chance to increase from previous day
+                const prevValue = viewsData[viewsData.length - 1];
+                const change = Math.floor(Math.random() * 8) - 2; // Random change between -2 and +5
+                const newValue = Math.max(0, prevValue + change); // Ensure value doesn't go below 0
+                viewsData.push(newValue);
+            }
+        }
+        
+        const viewsChart = new Chart(viewsCtx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Daily Views',
+                    data: viewsData,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

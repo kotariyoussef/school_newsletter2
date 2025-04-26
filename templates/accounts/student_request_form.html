@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Request Student Status{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Request Student Status</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted mb-4">To post stories on our platform, you need to be verified as a student. Please complete this form to request student status.</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.reason.id_for_label }}" class="form-label">Why do you want to be a student on this platform?</label>
+                        {{ form.reason }}
+                        {% if form.reason.errors %}
+                            <div class="text-danger mt-1">
+                                {{ form.reason.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
